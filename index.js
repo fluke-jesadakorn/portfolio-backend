@@ -2,11 +2,11 @@ const express = require('express')
 const app = express()
 const mongooose = require('mongoose')
 const { ApolloServer } = require('apollo-server-express')
-const typeDefs = require("./grqphql/typeDefs")
-const resolvers = require('./grqphql/resolvers')
-require('dotenv').config
+const typeDefs = require("./graphql/typeDefs")
+const resolvers = require('./graphql/resolvers')
+require('dotenv').config()
 
-const PORT = process.env.PORT || 7000
+const PORT = process.env.PORT || 8000
 
 const createServer = async () => {
     try {

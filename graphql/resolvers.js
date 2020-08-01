@@ -2,14 +2,12 @@ const User = require('../mongoDBModels/user')
 
 const resolvers = {
     Query: {
-        me: (_parents, _args, _context, _info) => me,
+        me: (_parents, _args, _context, _info) => User.findOne({ _id: "5f2472ea5eb0b523409639ff" }),
         user: (_parents, args, _context, _info) => {
-            const id = args.id
-
-            const user = users.find(u => u.id === id)
-            return user
+            console.log(args)
+            return User.findOne({ _id: args.id })
         },
-        users: (_parents, _args, _context, _info) => users
+        users: (_parents, _args, _context, _info) => User.find()
     },
     Mutation: {
         signup: (_parents, args, _context, _info) => {
